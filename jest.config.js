@@ -19,6 +19,12 @@ module.exports = {
   // v6 of styled-components doesn't inject styles in test environment
   // we should to force it to use the browser version
   moduleNameMapper: {
-    "^styled-components": "styled-components/dist/styled-components.browser.cjs.js"
+    "^styled-components": "styled-components/dist/styled-components.browser.cjs.js",
+    "^@app/(.*)$": "<rootDir>/src/app/$1",
+    "^@components/(.*)$": "<rootDir>/src/components/$1",
+    "^@lib/(.*)$": "<rootDir>/src/lib/$1",
+    "^@styles/(.*)$": "<rootDir>/src/styles/$1",
+    "^@types/(.*)$": "<rootDir>/src/types/$1",
+    "^@utils/(.*)$": "<rootDir>/src/utils/$1"
   }
 };
