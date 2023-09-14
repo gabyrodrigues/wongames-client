@@ -27,4 +27,13 @@ describe("<Logo />", () => {
     const logo = screen.getByLabelText(/Won Games/i).parentElement;
     expect(logo).toHaveStyle({ width: "20rem" });
   });
+  it("should render a logo without text if hideOnMobile", () => {
+    renderWithTheme(<Logo hideOnMobile />);
+
+    const logo = screen.getByLabelText(/Won Games/i).parentElement;
+    expect(logo).toMatchSnapshot();
+    // expect(logo).toHaveStyleRule("width", "5.8rem", {
+    //   media: "(min-width: 768px)"
+    // });
+  });
 });
