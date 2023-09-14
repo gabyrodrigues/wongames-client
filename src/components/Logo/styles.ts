@@ -2,6 +2,10 @@ import styled, { css } from "styled-components";
 import { LogoProps } from ".";
 import media from "styled-media-query";
 
+interface LogoPropsStyles extends Omit<LogoProps, "hideOnMobile"> {
+  $hideOnMobile?: boolean;
+}
+
 const wrapperModifiers = {
   normal: () => css`
     height: 3.3rem;
@@ -28,11 +32,11 @@ const wrapperModifiers = {
   `
 };
 
-export const Wrapper = styled.div<LogoProps>`
-  ${({ theme, color, size, hideOnMobile }) => css`
+export const Wrapper = styled.div<LogoPropsStyles>`
+  ${({ theme, color, size, $hideOnMobile }) => css`
     color: ${theme.colors[color!]};
 
     ${!!size && wrapperModifiers[size]}
-    ${!!hideOnMobile && wrapperModifiers.hideOnMobile}
+    ${!!$hideOnMobile && wrapperModifiers.hideOnMobile}
   `}
 `;
