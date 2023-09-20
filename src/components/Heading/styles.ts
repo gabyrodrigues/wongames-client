@@ -1,24 +1,39 @@
 import styled, { css } from "styled-components";
 import media from "styled-media-query";
-import { HeadingProps } from ".";
+import { HeadingProps, LineColors } from ".";
 import { Theme } from "@styles/theme";
 
 interface HeadingStylesProps extends Omit<HeadingProps, "lineLeft"> {
-  $lineLeft?: boolean;
-  $lineBottom?: boolean;
+  $lineLeft: boolean;
+  $lineBottom: boolean;
+  $lineColor: LineColors;
 }
 
 const wrapperModifiers = {
-  lineLeft: (theme: Theme) => css`
-    border-left: 0.7rem solid ${theme.colors.secondary};
+  small: (theme: Theme) => css`
+    font-size: ${theme.font.sizes.medium};
+
+    &::after {
+      width: 3rem;
+    }
+  `,
+  medium: (theme: Theme) => css`
+    font-size: ${theme.font.sizes.xlarge};
+
+    ${media.greaterThan("medium")`
+      font-size: ${theme.font.sizes.xxlarge}
+    `}
+  `,
+  lineLeft: (theme: Theme, $lineColor: LineColors) => css`
+    border-left: 0.7rem solid ${theme.colors[$lineColor]};
     padding-left: ${theme.spacings.xxsmall};
   `,
-  lineBottom: (theme: Theme) => css`
+  lineBottom: (theme: Theme, $lineColor: LineColors) => css`
     position: relative;
     margin-bottom: ${theme.spacings.medium};
 
     &::after {
-      border-bottom: 0.5rem solid ${theme.colors.primary};
+      border-bottom: 0.5rem solid ${theme.colors[$lineColor]};
       bottom: -1rem;
       content: "";
       left: 0%;
@@ -29,15 +44,11 @@ const wrapperModifiers = {
 };
 
 export const Wrapper = styled.h2<HeadingStylesProps>`
-  ${({ theme, color, $lineLeft, $lineBottom }) => css`
+  ${({ theme, color, $lineLeft, $lineBottom, $lineColor, size }) => css`
     color: ${theme.colors[color!]};
-    font-size: ${theme.font.sizes.xlarge};
 
-    ${media.greaterThan("medium")`
-      font-size: ${theme.font.sizes.xxlarge}
-    `}
-
-    ${$lineLeft && wrapperModifiers.lineLeft(theme)}
-    ${$lineBottom && wrapperModifiers.lineBottom(theme)}
+    ${$lineLeft && wrapperModifiers.lineLeft(theme, $lineColor)}
+    ${$lineBottom && wrapperModifiers.lineBottom(theme, $lineColor)}
+    ${!!size && wrapperModifiers[size](theme)}
   `}
 `;
