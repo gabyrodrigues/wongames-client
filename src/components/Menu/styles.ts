@@ -29,6 +29,7 @@ export const IconWrapper = styled.div`
 
 export const MenuGroup = styled.div`
   ${({ theme }) => css`
+    align-items: center;
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
@@ -39,10 +40,17 @@ export const MenuGroup = styled.div`
   `}
 `;
 
-export const MenuNav = styled.div``;
+export const MenuNav = styled.div`
+  ${({ theme }) => css`
+    ${media.greaterThan("medium")`
+			margin-left: ${theme.spacings.small};
+		`}
+  `}
+`;
 
 export const MenuLink = styled.a`
   ${({ theme }) => css`
+    color: ${theme.colors.white};
     font-size: ${theme.font.sizes.medium};
     margin: 0.3rem ${theme.spacings.small} 0;
     position: relative;
