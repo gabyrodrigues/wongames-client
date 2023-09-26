@@ -1,3 +1,4 @@
+import Ribbon, { RibbonColors, RibbonSizes } from "../Ribbon";
 import Button from "../Button";
 import * as S from "./styles";
 
@@ -7,11 +8,31 @@ export type BannerProps = {
   subtitle: string;
   buttonLabel: string;
   buttonLink: string;
+  ribbon?: React.ReactNode;
+  ribbonColor?: RibbonColors;
+  ribbonSize?: RibbonSizes;
 };
 
-export default function Banner({ img, title, subtitle, buttonLabel, buttonLink }: BannerProps) {
+export default function Banner({
+  img,
+  title,
+  subtitle,
+  buttonLabel,
+  buttonLink,
+  ribbon,
+  ribbonColor = "primary",
+  ribbonSize = "normal"
+}: BannerProps) {
   return (
     <S.Wrapper>
+      {!!ribbon && (
+        <Ribbon
+          color={ribbonColor}
+          size={ribbonSize}>
+          {ribbon}
+        </Ribbon>
+      )}
+
       <S.Image
         src={img}
         role="img"

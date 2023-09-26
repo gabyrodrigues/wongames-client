@@ -11,6 +11,11 @@ export default {
     buttonLabel: "Buy now",
     buttonLink: "/games/defy-death"
   },
+  argTypes: {
+    ribbon: {
+      type: "string"
+    }
+  },
   parameters: {
     layout: "fullscreen"
   }
@@ -24,4 +29,19 @@ export const Default: StoryObj = {
       </div>
     )
   ]
+};
+
+export const WithRibbon: StoryObj = {
+  decorators: [
+    (Story) => (
+      <div style={{ maxWidth: "104rem", margin: "0 auto" }}>
+        <Story />
+      </div>
+    )
+  ],
+  args: {
+    ribbon: "20% OFF",
+    ribbonSize: "normal",
+    ribbonColor: "primary"
+  }
 };
