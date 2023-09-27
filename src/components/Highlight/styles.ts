@@ -11,6 +11,8 @@ export const Wrapper = styled.section<WrapperProps>`
     background-size: cover;
     background-position: center center;
     display: grid;
+    grid-template-areas: "floatimage content";
+    grid-template-columns: 1.3fr 2fr;
     height: 23rem;
     position: relative;
 
@@ -28,8 +30,23 @@ export const Wrapper = styled.section<WrapperProps>`
   `}
 `;
 
+export const FloatImage = styled.img`
+  ${({ theme }) => css`
+    align-self: end;
+    grid-area: floatimage;
+    max-height: 23rem;
+    max-width: 100%;
+    z-index: ${theme.layers.base};
+
+    ${media.greaterThan("medium")`
+      max-height: 32rem;
+    `}
+  `}
+`;
+
 export const Content = styled.div`
   ${({ theme }) => css`
+    grid-area: content;
     padding: ${theme.spacings.xsmall};
     text-align: right;
     z-index: ${theme.layers.base};
