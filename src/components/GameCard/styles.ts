@@ -16,7 +16,7 @@ const priceModifiers = {
   `,
   promotional: (theme: Theme) => css`
     color: ${theme.colors.gray};
-    margin-right: ${theme.spacings.xsmall};
+    margin-right: ${theme.spacings.xxsmall};
     text-decoration: line-through;
   `
 };
