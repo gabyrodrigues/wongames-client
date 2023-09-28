@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import * as S from "./styles";
-import { AddShoppingCart, FavoriteBorder } from "@styled-icons/material-outlined";
+import { AddShoppingCart, Favorite, FavoriteBorder } from "@styled-icons/material-outlined";
 import Button from "@components/Button";
 
 export type GameCardProps = {
@@ -9,6 +9,8 @@ export type GameCardProps = {
   img: string;
   price: string;
   promotionalPrice?: string;
+  favorite?: boolean;
+  onFav?: () => void;
 };
 
 export default function GameCard({
@@ -16,7 +18,9 @@ export default function GameCard({
   developer,
   img,
   price,
-  promotionalPrice
+  promotionalPrice,
+  favorite = false,
+  onFav
 }: GameCardProps) {
   return (
     <S.Wrapper>
@@ -31,8 +35,14 @@ export default function GameCard({
           <S.Title>{title}</S.Title>
           <S.Developer>{developer}</S.Developer>
         </S.Info>
-        <S.FavButton role="button">
-          <FavoriteBorder aria-label="Add to Wishlist" />
+        <S.FavButton
+          onClick={onFav}
+          role="button">
+          {favorite ? (
+            <Favorite aria-label="Remove from Wishlist" />
+          ) : (
+            <FavoriteBorder aria-label="Add to Wishlist" />
+          )}
         </S.FavButton>
         <S.BuyBox>
           {!!promotionalPrice && <S.Price $isPromotional>{price}</S.Price>}
