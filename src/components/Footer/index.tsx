@@ -1,7 +1,7 @@
 import * as S from "./styles";
 
-import Heading from "../Heading";
-import Logo from "../Logo";
+import Heading from "@components/Heading";
+import Logo from "@components/Logo";
 import Link from "next/link";
 
 export default function Footer() {

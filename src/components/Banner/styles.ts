@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import media from "styled-media-query";
-import * as RibbonStyles from "../Ribbon/styles";
+import * as RibbonStyles from "@components/Ribbon/styles";
 
 type ImageProps = {
   src: string;

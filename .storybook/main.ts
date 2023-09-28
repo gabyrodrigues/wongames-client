@@ -1,3 +1,5 @@
+import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+
 const config = {
   staticDirs: ["../public"],
   stories: ["../src/components/**/*.stories.tsx"],
@@ -9,8 +11,13 @@ const config = {
   docs: {
     autodocs: true
   },
-  webpackFinal: (config) => {
-    config.resolve.modules.push(`${process.cwd()}/src`);
+  webpackFinal: async (config) => {
+    config.resolve.plugins = [
+      ...(config.resolve.plugins || []),
+      new TsconfigPathsPlugin({
+        extensions: config.resolve.extensions
+      })
+    ];
     return config;
   }
 };
