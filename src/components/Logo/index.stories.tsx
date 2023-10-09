@@ -13,5 +13,10 @@ export const Default: StoryObj = {
         type: "select"
       }
     }
+  },
+  parameters: {
+    backgrounds: {
+      default: "won-dark"
+    }
   }
 };
