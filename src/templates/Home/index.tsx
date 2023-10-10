@@ -1,9 +1,54 @@
-import * as S from "./styles";
+import Menu from "@components/Menu";
+import { Container } from "@components/Container";
+import Footer from "@components/Footer";
+import Heading from "@components/Heading";
 
-const Home = () => (
-  <S.Wrapper>
-    <h1>Home</h1>
-  </S.Wrapper>
-);
+export default function Home() {
+  return (
+    <section>
+      <Container>
+        <Menu />
+      </Container>
 
-export default Home;
+      <Container>
+        <Heading
+          lineLeft
+          lineColor="secondary"
+          color="black">
+          News
+        </Heading>
+      </Container>
+
+      <Container>
+        <Heading
+          lineLeft
+          lineColor="secondary"
+          color="black">
+          Most Popular
+        </Heading>
+      </Container>
+
+      <Container>
+        <Heading
+          lineLeft
+          lineColor="secondary"
+          color="black">
+          Upcoming
+        </Heading>
+      </Container>
+
+      <Container>
+        <Heading
+          lineLeft
+          lineColor="secondary"
+          color="black">
+          Free Games
+        </Heading>
+      </Container>
+
+      <Container>
+        <Footer />
+      </Container>
+    </section>
+  );
+}
