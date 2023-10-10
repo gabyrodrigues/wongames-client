@@ -24,6 +24,7 @@ module.exports = {
     "^@components/(.*)$": "<rootDir>/src/components/$1",
     "^@lib/(.*)$": "<rootDir>/src/lib/$1",
     "^@styles/(.*)$": "<rootDir>/src/styles/$1",
+    "^@templates/(.*)$": "<rootDir>/src/templates/$1",
     "^@types/(.*)$": "<rootDir>/src/types/$1",
     "^@utils/(.*)$": "<rootDir>/src/utils/$1"
   }

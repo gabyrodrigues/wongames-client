@@ -24,6 +24,7 @@
       "@lib/*": ["./src/lib/*"],
       "@styles/*": ["./src/styles/*"],
       "@types/*": ["./src/types/*"],
+      "@templates/*": ["./src/templates/*"],
       "@utils/*": ["./src/utils/*"]
     }
   },

@@ -1,5 +1,6 @@
 "use client";
-import { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle } from "styled-components";
+import theme from "./theme";
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -39,7 +40,7 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  ${({ theme }) => css`
+
     html {
       font-size: 62.5%; // 1rem = 10px == 10/16px = 62.5% (1.4rem = 14px)
     }
@@ -49,7 +50,7 @@ const GlobalStyles = createGlobalStyle`
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
     }
-  `}
+
 
 `;
 
