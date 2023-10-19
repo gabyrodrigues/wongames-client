@@ -27,7 +27,7 @@ export default function BannerSlider({ items }: BannerSliderProps) {
   return (
     <S.Wrapper>
       <Slider settings={settings}>
-        {items.map((item) => (
+        {items?.map((item) => (
           <Banner
             key={item.title}
             {...item}

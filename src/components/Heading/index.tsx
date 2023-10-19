@@ -14,7 +14,7 @@ export type HeadingProps = {
 
 export default function Heading({
   children,
-  color = "black",
+  color = "white",
   lineLeft = false,
   lineBottom = false,
   lineColor = "primary",
