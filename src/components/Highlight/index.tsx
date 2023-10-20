@@ -22,7 +22,7 @@ export default function Highlight({
 }: HighlightProps) {
   return (
     <S.Wrapper
-      alignment={alignment}
+      $alignment={alignment}
       $backgroundImage={backgroundImage}>
       {!!floatImage && (
         <S.FloatImage

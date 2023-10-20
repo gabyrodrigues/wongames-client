@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 import media from "styled-media-query";
-import { HighlightProps } from ".";
 
-interface WrapperProps extends Pick<HighlightProps, "alignment"> {
+interface WrapperProps {
+  $alignment: "right" | "left";
   $backgroundImage: string;
 }
 
@@ -30,7 +30,7 @@ const wrapperModifiers = {
 };
 
 export const Wrapper = styled.section<WrapperProps>`
-  ${({ $backgroundImage, alignment }) => css`
+  ${({ $backgroundImage, $alignment }) => css`
     background-image: url(${$backgroundImage});
     background-size: cover;
     background-position: center center;
@@ -50,7 +50,7 @@ export const Wrapper = styled.section<WrapperProps>`
       height: 32rem;
     `}
 
-    ${wrapperModifiers[alignment!]()}
+    ${wrapperModifiers[$alignment!]()}
   `}
 `;
 

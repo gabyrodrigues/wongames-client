@@ -1,11 +1,10 @@
-import styled, { css } from "styled-components";
+import { ReactNode } from "react";
+import * as S from "./styles";
 
-export const Container = styled.div`
-  ${({ theme }) => css`
-    margin-left: auto;
-    margin-right: auto;
-    max-width: ${theme.grid.container};
-    padding-left: calc(${theme.grid.gutter} / 2);
-    padding-right: calc(${theme.grid.gutter} / 2);
-  `}
-`;
+interface ContainerProps {
+  children: ReactNode;
+}
+
+export default function Container({ children }: ContainerProps) {
+  return <S.Wrapper>{children}</S.Wrapper>;
+}

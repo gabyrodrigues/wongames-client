@@ -1,5 +1,5 @@
 import Menu from "@components/Menu";
-import { Container } from "@components/Container";
+import Container from "@components/Container";
 import Footer from "@components/Footer";
 import Heading from "@components/Heading";
 import { BannerProps } from "@components/Banner";
