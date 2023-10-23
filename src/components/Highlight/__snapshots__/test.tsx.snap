@@ -89,7 +89,6 @@ exports[`<Highlight /> should render headings and button 1`] = `
 }
 
 <section
-  alignment="right"
   class="c0"
 >
   <div
