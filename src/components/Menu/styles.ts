@@ -97,10 +97,11 @@ export const MenuFull = styled.nav<MenuFullProps>`
     overflow: hidden;
     opacity: ${$isOpen ? 1 : 0};
     pointer-events: ${$isOpen ? "all" : "none"};
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     transition: opacity 0.3s ease-in-out;
+    z-index: ${theme.layers.menu};
 
     > svg {
       cursor: pointer;
