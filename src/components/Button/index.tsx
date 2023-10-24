@@ -26,7 +26,7 @@ export default function Button({
       size={size}
       $fullWidth={fullWidth}
       $hasIcon={!!icon}
-      minimal={minimal}
+      $minimal={minimal}
       {...props}>
       {!!icon && icon}
       {!!children && <span>{children}</span>}
