@@ -65,4 +65,19 @@ describe("<Checkbox />", () => {
     });
     expect(onCheck).toHaveBeenCalledWith(false);
   });
+  it("should be accessible with tab", async () => {
+    renderWithTheme(
+      <Checkbox
+        label="Checkbox"
+        labelFor="checkbox"
+      />
+    );
+
+    expect(document.body).toHaveFocus();
+    userEvent.tab();
+    await waitFor(() => {
+      expect(document.body).not.toHaveFocus();
+      expect(screen.getByLabelText(/checkbox/i)).toHaveFocus();
+    });
+  });
 });
