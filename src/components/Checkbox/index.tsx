@@ -3,26 +3,29 @@ import * as S from "./styles";
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   onCheck?: (status: boolean) => void;
+  isChecked?: boolean;
   label?: string;
   labelFor?: string;
   labelColor?: "white" | "black";
+  value?: string | ReadonlyArray<string> | number;
 }
 
 export default function Checkbox({
   onCheck,
+  isChecked = false,
   label,
   labelFor = "",
-  labelColor = "white"
+  labelColor = "white",
+  value,
+  ...props
 }: CheckboxProps) {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(isChecked);
 
   function handleOnChange() {
     const status = !checked;
     setChecked(status);
 
-    if (onCheck) {
-      onCheck(status);
-    }
+    !!onCheck && onCheck(status);
   }
   return (
     <S.Wrapper>
@@ -31,6 +34,8 @@ export default function Checkbox({
         type="checkbox"
         checked={checked}
         onChange={handleOnChange}
+        value={value}
+        {...props}
       />
       {!!label && (
         <S.Label

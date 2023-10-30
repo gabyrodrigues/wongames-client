@@ -9,4 +9,8 @@ export default {
   }
 } as Meta<CheckboxProps>;
 
-export const Default: StoryObj = {};
+export const Default: StoryObj = {
+  args: {
+    isChecked: true
+  }
+};
