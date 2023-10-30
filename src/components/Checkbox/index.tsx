@@ -9,7 +9,7 @@ export interface CheckboxProps {
 export default function Checkbox({ label, labelFor = "", labelColor = "white" }: CheckboxProps) {
   return (
     <S.Wrapper>
-      <input
+      <S.Input
         id={labelFor}
         type="checkbox"
       />
