@@ -1,5 +1,13 @@
 import styled, { css } from "styled-components";
 
+interface IconStyleProps {
+  $iconPosition: "left" | "right";
+}
+
+interface InputStyleProps {
+  $iconPosition: "left" | "right";
+}
+
 export const InputWrapper = styled.div`
   ${({ theme }) => css`
     background: ${theme.colors.lightGray};
@@ -15,15 +23,16 @@ export const InputWrapper = styled.div`
   `}
 `;
 
-export const Input = styled.input`
-  ${({ theme }) => css`
+export const Input = styled.input<InputStyleProps>`
+  ${({ theme, $iconPosition }) => css`
     background: transparent;
     border: 0;
     color: ${theme.colors.black};
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
     outline: none;
-    padding: ${theme.spacings.xxsmall};
+    padding: ${theme.spacings.xxsmall} 0;
+    padding-${$iconPosition}: ${theme.spacings.xsmall};
     width: 100%;
   `}
 `;
@@ -38,10 +47,11 @@ export const Label = styled.label`
 
 export const Wrapper = styled.div``;
 
-export const Icon = styled.div`
-  ${({ theme }) => css`
+export const Icon = styled.div<IconStyleProps>`
+  ${({ theme, $iconPosition }) => css`
     color: ${theme.colors.gray};
     display: flex;
+    order: ${$iconPosition == "right" ? 1 : 0};
     width: 2.2rem;
 
     & > svg {

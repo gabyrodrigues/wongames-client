@@ -6,6 +6,7 @@ export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   labelFor?: string;
   initialValue?: string;
   icon?: ReactNode;
+  iconPosition?: "left" | "right";
 }
 
 export default function TextField({
@@ -14,6 +15,7 @@ export default function TextField({
   labelFor = "",
   initialValue = "",
   icon,
+  iconPosition = "left",
   ...props
 }: TextFieldProps) {
   const [value, setValue] = useState(initialValue);
@@ -28,11 +30,12 @@ export default function TextField({
     <S.Wrapper>
       {!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
       <S.InputWrapper>
-        {!!icon && <S.Icon>{icon}</S.Icon>}
+        {!!icon && <S.Icon $iconPosition={iconPosition}>{icon}</S.Icon>}
         <S.Input
           type="text"
           onChange={handleOnChange}
           value={value}
+          $iconPosition={iconPosition}
           {...props}
         />
       </S.InputWrapper>

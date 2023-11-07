@@ -46,7 +46,6 @@ describe("<TextField />", () => {
     userEvent.type(input, text);
 
     await waitFor(() => {
-      screen.debug(input);
       expect(input).toHaveValue(text);
       expect(onChange).toHaveBeenCalledTimes(text.length);
     });
@@ -80,5 +79,18 @@ describe("<TextField />", () => {
     );
 
     expect(screen.getByTestId("icon")).toBeInTheDocument();
+  });
+  it("should render an icon in the right position", () => {
+    renderWithTheme(
+      <TextField
+        label="TextField"
+        labelFor="TextField"
+        id="TextField"
+        icon={<Email data-testid="icon" />}
+        iconPosition="right"
+      />
+    );
+
+    expect(screen.getByTestId("icon").parentElement).toHaveStyle({ order: 1 });
   });
 });

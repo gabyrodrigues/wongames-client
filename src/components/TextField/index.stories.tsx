@@ -30,7 +30,8 @@ export const Default: StoryObj = {
 
 export const WithIcon: StoryObj = {
   args: {
-    icon: <Email />
+    icon: <Email />,
+    iconPosition: "left"
   },
   argTypes: {
     icon: { type: "" }
