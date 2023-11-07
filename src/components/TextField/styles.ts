@@ -1,4 +1,6 @@
 import styled, { css } from "styled-components";
+import { TextFieldProps } from ".";
+import { Theme } from "@styles/theme";
 
 interface IconStyleProps {
   $iconPosition: "left" | "right";
@@ -7,6 +9,8 @@ interface IconStyleProps {
 interface InputStyleProps {
   $iconPosition: "left" | "right";
 }
+
+interface WrapperStyleProps extends Pick<TextFieldProps, "disabled"> {}
 
 export const InputWrapper = styled.div`
   ${({ theme }) => css`
@@ -45,7 +49,26 @@ export const Label = styled.label`
   `}
 `;
 
-export const Wrapper = styled.div``;
+const wrapperModifiers = {
+  disabled: (theme: Theme) => css`
+    ${Label},
+    ${Input},
+    ${Icon} {
+      color: ${theme.colors.gray};
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: currentColor;
+      }
+    }
+  `
+};
+
+export const Wrapper = styled.div<WrapperStyleProps>`
+  ${({ theme, disabled }) => css`
+    ${disabled && wrapperModifiers.disabled(theme)}
+  `}
+`;
 
 export const Icon = styled.div<IconStyleProps>`
   ${({ theme, $iconPosition }) => css`

@@ -5,7 +5,7 @@ import TextField from ".";
 import { Email } from "@styled-icons/material-outlined";
 
 describe("<TextField />", () => {
-  it("Renders with Label", () => {
+  it("renders with Label", () => {
     renderWithTheme(
       <TextField
         label="Label"
@@ -16,20 +16,17 @@ describe("<TextField />", () => {
 
     expect(screen.getByLabelText("Label")).toBeInTheDocument();
   });
-
-  it("Renders without Label", () => {
+  it("renders without Label", () => {
     renderWithTheme(<TextField />);
 
     expect(screen.queryByLabelText("Label")).not.toBeInTheDocument();
   });
-
-  it("Renders with placeholder", () => {
+  it("renders with placeholder", () => {
     renderWithTheme(<TextField placeholder="hey you" />);
 
     expect(screen.getByPlaceholderText("hey you")).toBeInTheDocument();
   });
-
-  it("Changes its value when typing", async () => {
+  it("changes its value when typing", async () => {
     const onChange = jest.fn();
     renderWithTheme(
       <TextField
@@ -50,8 +47,7 @@ describe("<TextField />", () => {
       expect(onChange).toHaveBeenCalledTimes(text.length);
     });
   });
-
-  it("Is accessible by tab", async () => {
+  it("is accessible by tab", async () => {
     renderWithTheme(
       <TextField
         label="TextField"
@@ -92,5 +88,46 @@ describe("<TextField />", () => {
     );
 
     expect(screen.getByTestId("icon").parentElement).toHaveStyle({ order: 1 });
+  });
+  it("does not changes its value when disabled", async () => {
+    const onChange = jest.fn();
+    renderWithTheme(
+      <TextField
+        onChange={onChange}
+        label="TextField"
+        labelFor="TextField"
+        id="TextField"
+        disabled
+      />
+    );
+
+    const input = screen.getByRole("textbox");
+    expect(input).toBeDisabled();
+    const text = "This is my new text";
+
+    userEvent.type(input, text);
+
+    await waitFor(() => {
+      expect(input).not.toHaveValue(text);
+      expect(onChange).not.toHaveBeenCalled();
+    });
+  });
+  it("is not accessible by tab when disabled", async () => {
+    renderWithTheme(
+      <TextField
+        label="TextField"
+        labelFor="TextField"
+        id="TextField"
+        disabled
+      />
+    );
+
+    const input = screen.getByLabelText("TextField");
+    expect(document.body).toHaveFocus();
+
+    await waitFor(() => {
+      userEvent.tab();
+      expect(input).not.toHaveFocus();
+    });
   });
 });
