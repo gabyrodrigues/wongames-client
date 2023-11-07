@@ -10,7 +10,9 @@ interface InputStyleProps {
   $iconPosition: "left" | "right";
 }
 
-interface WrapperStyleProps extends Pick<TextFieldProps, "disabled"> {}
+interface WrapperStyleProps extends Pick<TextFieldProps, "disabled"> {
+  error?: boolean;
+}
 
 export const InputWrapper = styled.div`
   ${({ theme }) => css`
@@ -61,12 +63,22 @@ const wrapperModifiers = {
         color: currentColor;
       }
     }
+  `,
+  error: (theme: Theme) => css`
+    ${InputWrapper} {
+      border-color: ${theme.colors.red};
+    }
+    ${Icon},
+    ${Label} {
+      color: ${theme.colors.red};
+    }
   `
 };
 
 export const Wrapper = styled.div<WrapperStyleProps>`
-  ${({ theme, disabled }) => css`
+  ${({ theme, disabled, error }) => css`
     ${disabled && wrapperModifiers.disabled(theme)}
+    ${error && wrapperModifiers.error(theme)}
   `}
 `;
 
@@ -80,5 +92,12 @@ export const Icon = styled.div<IconStyleProps>`
     & > svg {
       width: 100%;
     }
+  `}
+`;
+
+export const Error = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.red};
+    font-size: ${theme.font.sizes.xsmall};
   `}
 `;

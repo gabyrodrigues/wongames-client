@@ -8,6 +8,7 @@ export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: ReactNode;
   iconPosition?: "left" | "right";
   disabled?: boolean;
+  error?: string;
 }
 
 export default function TextField({
@@ -18,6 +19,7 @@ export default function TextField({
   icon,
   iconPosition = "left",
   disabled = false,
+  error,
   ...props
 }: TextFieldProps) {
   const [value, setValue] = useState(initialValue);
@@ -29,7 +31,9 @@ export default function TextField({
     !!onChange && onChange(event);
   }
   return (
-    <S.Wrapper disabled={disabled}>
+    <S.Wrapper
+      disabled={disabled}
+      error={!!error}>
       {!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
       <S.InputWrapper>
         {!!icon && <S.Icon $iconPosition={iconPosition}>{icon}</S.Icon>}
@@ -42,6 +46,7 @@ export default function TextField({
           disabled={disabled}
         />
       </S.InputWrapper>
+      {!!error && <S.Error>{error}</S.Error>}
     </S.Wrapper>
   );
 }

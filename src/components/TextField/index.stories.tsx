@@ -44,3 +44,20 @@ export const WithIcon: StoryObj = {
     )
   ]
 };
+
+export const WithError: StoryObj = {
+  args: {
+    error: "Ops...something is wrong!",
+    icon: <Email />
+  },
+  argTypes: {
+    icon: { type: "" }
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ maxWidth: "300px", padding: "15px" }}>
+        <Story />
+      </div>
+    )
+  ]
+};

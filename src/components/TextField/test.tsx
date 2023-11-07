@@ -130,4 +130,18 @@ describe("<TextField />", () => {
       expect(input).not.toHaveFocus();
     });
   });
+  it("Renders with error", () => {
+    const { container } = renderWithTheme(
+      <TextField
+        icon={<Email data-testid="icon" />}
+        label="TextField"
+        labelFor="TextField"
+        error="Error message"
+      />
+    );
+
+    expect(screen.getByText("Error message")).toBeInTheDocument();
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

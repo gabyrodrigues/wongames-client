@@ -3,17 +3,17 @@ import Heading from ".";
 import { renderWithTheme } from "@utils/tests/helpers";
 
 describe("<Heading />", () => {
-  it("should render a black heading by default", () => {
+  it("should render a white heading by default", () => {
     renderWithTheme(<Heading>Won Games</Heading>);
 
     const heading = screen.getByRole("heading", { name: /won games/i });
-    expect(heading).toHaveStyle({ color: "#030517" });
+    expect(heading).toHaveStyle({ color: "#FAFAFA" });
   });
-  it("should render a white heading when color is passed", () => {
-    renderWithTheme(<Heading color="white">Won Games</Heading>);
+  it("should render a black heading when color is passed", () => {
+    renderWithTheme(<Heading color="black">Won Games</Heading>);
 
     const heading = screen.getByRole("heading", { name: /won games/i });
-    expect(heading).toHaveStyle({ color: "#FAFAFA" });
+    expect(heading).toHaveStyle({ color: "#030517" });
   });
   it("should render a heading with a line to the left side", () => {
     renderWithTheme(
