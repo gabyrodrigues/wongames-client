@@ -11,7 +11,7 @@ interface InputStyleProps {
 }
 
 interface WrapperStyleProps extends Pick<TextFieldProps, "disabled"> {
-  error?: boolean;
+  $error?: boolean;
 }
 
 export const InputWrapper = styled.div`
@@ -76,9 +76,9 @@ const wrapperModifiers = {
 };
 
 export const Wrapper = styled.div<WrapperStyleProps>`
-  ${({ theme, disabled, error }) => css`
+  ${({ theme, disabled, $error }) => css`
     ${disabled && wrapperModifiers.disabled(theme)}
-    ${error && wrapperModifiers.error(theme)}
+    ${$error && wrapperModifiers.error(theme)}
   `}
 `;
 
