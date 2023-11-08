@@ -1,10 +1,10 @@
 import { render } from "@testing-library/react";
-import { AuthTemplate } from "./AuthTemplate";
+import AuthTemplate from "./template";
 
 describe("<Auth />", () => {
   it("should render all components and children", () => {
     render(
-      <AuthTemplate title="Auth Title">
+      <AuthTemplate>
         <input type="text" />
       </AuthTemplate>
     );

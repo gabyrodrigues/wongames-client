@@ -1,9 +1,22 @@
-import { AuthTemplate } from "../AuthTemplate";
+"use client";
+import Heading from "@components/Heading";
+import Logo from "@components/Logo";
+import * as S from "./styles";
 
 export default function SignIn() {
   return (
-    <AuthTemplate title="Sign In">
-      <h1>this is Login</h1>
-    </AuthTemplate>
+    <S.Wrapper>
+      <Logo
+        color="black"
+        size="large"
+      />
+      <Heading
+        color="black"
+        lineColor="secondary"
+        lineLeft>
+        Sign In
+      </Heading>
+      this is Sign In
+    </S.Wrapper>
   );
 }
