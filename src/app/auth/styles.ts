@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import { css } from "styled-components";
+import media from "styled-media-query";
 
 export const Wrapper = styled.main`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   height: 100vh;
+
+  ${media.greaterThan("medium")`
+    grid-template-columns: 1fr 1fr;
+  `}
 `;
 
 export const BannerBlock = styled.div`
@@ -14,6 +19,10 @@ export const BannerBlock = styled.div`
     background-size: cover;
     padding: ${theme.spacings.xxlarge} ${theme.spacings.xxlarge} ${theme.spacings.large};
     position: relative;
+
+    ${media.lessThan("medium")`
+      display: none;
+    `}
 
     &:after {
       background: ${theme.colors.black};
