@@ -44,6 +44,12 @@ describe("<Heading />", () => {
       modifier: "::after"
     });
   });
+  it("should render a heading with a huge size", () => {
+    renderWithTheme(<Heading size="huge">Won Games</Heading>);
+
+    const heading = screen.getByRole("heading", { name: /won games/i });
+    expect(heading).toHaveStyle({ fontSize: "5.2rem" });
+  });
   it("should render a heading with a secondary line color", () => {
     renderWithTheme(
       <Heading
