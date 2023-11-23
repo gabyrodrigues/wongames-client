@@ -9,6 +9,7 @@ export default function SignIn() {
       <Logo
         color="black"
         size="large"
+        id="content"
       />
       <Heading
         color="black"

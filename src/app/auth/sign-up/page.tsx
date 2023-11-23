@@ -10,6 +10,7 @@ export default function SignUp() {
       <Logo
         color="black"
         size="large"
+        id="content"
       />
       <Heading
         color="black"
