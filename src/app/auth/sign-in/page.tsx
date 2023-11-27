@@ -2,6 +2,7 @@
 import Heading from "@components/Heading";
 import Logo from "@components/Logo";
 import * as S from "./styles";
+import FormSignIn from "@components/FormSignIn";
 
 export default function SignIn() {
   return (
@@ -17,7 +18,7 @@ export default function SignIn() {
         lineLeft>
         Sign In
       </Heading>
-      this is Sign In
+      <FormSignIn />
     </S.Wrapper>
   );
 }
