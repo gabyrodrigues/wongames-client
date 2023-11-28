@@ -64,6 +64,18 @@ exports[`<FormSignIn /> should render the form 1`] = `
   background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
 }
 
+.c6 {
+  color: #030517;
+  display: block;
+  font-size: 1.4rem;
+  text-align: right;
+  text-decoration: none;
+}
+
+.c6:hover {
+  color: #0f1971;
+}
+
 .c0 .c1 {
   margin: 0.8rem 0;
 }
@@ -88,18 +100,6 @@ exports[`<FormSignIn /> should render the form 1`] = `
 .c9 a:hover {
   border-bottom: 0.1rem solid #29b3a3;
   color: #29b3a3;
-}
-
-.c6 {
-  color: #030517;
-  display: block;
-  font-size: 1.4rem;
-  text-align: right;
-  text-decoration: none;
-}
-
-.c6:hover {
-  color: #0f1971;
 }
 
 <body>

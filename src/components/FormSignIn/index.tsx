@@ -1,12 +1,13 @@
+import Link from "next/link";
 import { Email, Lock } from "@styled-icons/material-outlined";
 import TextField from "@components/TextField";
 import Button from "@components/Button";
 import * as S from "./styles";
-import Link from "next/link";
+import { FormLink, FormWrapper } from "@components/Form";
 
 export default function FormSignIn() {
   return (
-    <S.Wrapper>
+    <FormWrapper>
       <form>
         <TextField
           name="email"
@@ -27,10 +28,10 @@ export default function FormSignIn() {
           fullWidth>
           Sign in now
         </Button>
-        <S.FormLink>
+        <FormLink>
           Don&apos;t have an account? <Link href="/sign-up">Sign up</Link>
-        </S.FormLink>
+        </FormLink>
       </form>
-    </S.Wrapper>
+    </FormWrapper>
   );
 }
