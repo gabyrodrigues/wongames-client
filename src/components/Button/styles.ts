@@ -59,6 +59,11 @@ export const Wrapper = styled.button<WrapperProps>`
     padding: ${theme.spacings.xxsmall};
     text-decoration: none;
 
+    a {
+      text-decoration: none;
+      color: ${theme.colors.white};
+    }
+
     &:hover {
       background: ${$minimal ? "none" : "linear-gradient(180deg, #e35565 0%, #d958a6 50%)"};
     }

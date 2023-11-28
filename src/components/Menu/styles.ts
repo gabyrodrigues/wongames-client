@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
@@ -48,7 +49,7 @@ export const MenuNav = styled.div`
   `}
 `;
 
-export const MenuLink = styled.a`
+export const MenuLink = styled(Link)`
   ${({ theme }) => css`
     color: ${theme.colors.white};
     font-size: ${theme.font.sizes.medium};
@@ -152,7 +153,7 @@ export const RegisterBox = styled.div`
   `}
 `;
 
-export const CreateAccount = styled.a`
+export const CreateAccount = styled(Link)`
   ${({ theme }) => css`
     color: ${theme.colors.primary};
     border-bottom: 0.2rem solid ${theme.colors.primary};

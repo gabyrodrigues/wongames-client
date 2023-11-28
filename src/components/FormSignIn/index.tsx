@@ -29,7 +29,7 @@ export default function FormSignIn() {
           Sign in now
         </Button>
         <FormLink>
-          Don&apos;t have an account? <Link href="/sign-up">Sign up</Link>
+          Don&apos;t have an account? <Link href="/auth/sign-up">Sign up</Link>
         </FormLink>
       </form>
     </FormWrapper>

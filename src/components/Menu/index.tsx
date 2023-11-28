@@ -9,6 +9,7 @@ import Logo from "@components/Logo";
 import Button from "@components/Button";
 import MediaMatch from "@components/MediaMatch";
 import * as S from "./styles";
+import Link from "next/link";
 
 export type MenuProps = {
   username?: string;
@@ -46,7 +47,11 @@ export default function Menu({ username }: MenuProps) {
 
         {!username && (
           <MediaMatch greaterThan="medium">
-            <Button>Sign in</Button>
+            <Button
+              as={Link}
+              href="/auth/sign-in">
+              Sign in
+            </Button>
           </MediaMatch>
         )}
       </S.MenuGroup>
@@ -60,7 +65,7 @@ export default function Menu({ username }: MenuProps) {
         />
 
         <S.MenuNav>
-          <S.MenuLink href="#">Home</S.MenuLink>
+          <S.MenuLink href="/">Home</S.MenuLink>
           <S.MenuLink href="#">Explore</S.MenuLink>
 
           {!!username && (
@@ -75,15 +80,17 @@ export default function Menu({ username }: MenuProps) {
           <S.RegisterBox>
             <Button
               fullWidth
-              size="large">
+              size="large"
+              as={Link}
+              href="/auth/sign-in">
               Log in now
             </Button>
 
             <span>or</span>
 
             <S.CreateAccount
-              href="#"
-              title="Sign Up">
+              title="Sign Up"
+              href="/auth/sign-up">
               Sign Up
             </S.CreateAccount>
           </S.RegisterBox>

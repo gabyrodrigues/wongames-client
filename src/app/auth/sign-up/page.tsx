@@ -1,18 +1,21 @@
 "use client";
+import Link from "next/link";
+
 import Heading from "@components/Heading";
 import Logo from "@components/Logo";
-
-import * as S from "./styles";
 import FormSignUp from "@components/FormSignUp";
+import * as S from "./styles";
 
 export default function SignUp() {
   return (
     <S.Wrapper>
-      <Logo
-        color="black"
-        size="large"
-        id="content"
-      />
+      <Link href="/">
+        <Logo
+          color="black"
+          size="large"
+          id="content"
+        />
+      </Link>
       <Heading
         color="black"
         lineColor="secondary"

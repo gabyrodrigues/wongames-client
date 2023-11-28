@@ -1,4 +1,6 @@
 "use client";
+import Link from "next/link";
+
 import Heading from "@components/Heading";
 import Logo from "@components/Logo";
 import * as S from "./styles";
@@ -12,7 +14,9 @@ export default function AuthTemplate({ children }: AuthProps) {
     <S.Wrapper>
       <S.BannerBlock>
         <S.BannerContent>
-          <Logo id="banner" />
+          <Link href="/">
+            <Logo id="banner" />
+          </Link>
 
           <div>
             <Heading size="huge">All your favorite games in one place</Heading>
