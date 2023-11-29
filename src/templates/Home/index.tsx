@@ -1,13 +1,11 @@
 import Menu from "@components/Menu";
 import { Container } from "@components/Container";
 import Footer from "@components/Footer";
-import Heading from "@components/Heading";
 import { BannerProps } from "@components/Banner";
 import { GameCardProps } from "@components/GameCard";
 import Showcase from "@components/Showcase";
-import Highlight, { HighlightProps } from "@components/Highlight";
+import { HighlightProps } from "@components/Highlight";
 import BannerSlider from "@components/BannerSlider";
-import GameCardSlider from "@components/GameCardSlider";
 
 import * as S from "./styles";
 
@@ -73,33 +71,6 @@ export default function Home({
         highlight={freeHighlight}
         games={freeGames}
       />
-
-      <Container>
-        <S.SectionUpcoming>
-          <Heading
-            lineLeft
-            lineColor="secondary">
-            Upcoming
-          </Heading>
-
-          <GameCardSlider items={upcomingGames} />
-          <Highlight {...upcomingHighlight} />
-          <GameCardSlider items={upcomingMoreGames} />
-        </S.SectionUpcoming>
-      </Container>
-
-      <Container>
-        <S.SectionFreeGames>
-          <Heading
-            lineLeft
-            lineColor="secondary">
-            Free Games
-          </Heading>
-
-          <Highlight {...freeHighlight} />
-          <GameCardSlider items={freeGames} />
-        </S.SectionFreeGames>
-      </Container>
 
       <S.SectionFooter>
         <Container>
