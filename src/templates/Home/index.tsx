@@ -4,6 +4,7 @@ import Footer from "@components/Footer";
 import Heading from "@components/Heading";
 import { BannerProps } from "@components/Banner";
 import { GameCardProps } from "@components/GameCard";
+import Showcase from "@components/Showcase";
 import Highlight, { HighlightProps } from "@components/Highlight";
 import BannerSlider from "@components/BannerSlider";
 import GameCardSlider from "@components/GameCardSlider";
@@ -43,33 +44,35 @@ export default function Home({
       </Container>
 
       <S.SectionNews>
-        <Container>
-          <Heading
-            lineLeft
-            lineColor="secondary"
-            color="black">
-            News
-          </Heading>
-
-          <GameCardSlider
-            items={newGames}
-            color="black"
-          />
-        </Container>
+        <Showcase
+          title="News"
+          games={newGames}
+        />
       </S.SectionNews>
 
-      <Container>
-        <S.SectionMostPopular>
-          <Heading
-            lineLeft
-            lineColor="secondary">
-            Most Popular
-          </Heading>
+      <Showcase
+        title="Most Popular"
+        highlight={mostPopularHighlight}
+        games={mostPopularGames}
+      />
 
-          <Highlight {...mostPopularHighlight} />
-          <GameCardSlider items={mostPopularGames} />
-        </S.SectionMostPopular>
-      </Container>
+      <S.SectionUpcoming>
+        <Showcase
+          title="Upcoming"
+          games={upcomingGames}
+        />
+
+        <Showcase
+          highlight={upcomingHighlight}
+          games={upcomingMoreGames}
+        />
+      </S.SectionUpcoming>
+
+      <Showcase
+        title="Free Games"
+        highlight={freeHighlight}
+        games={freeGames}
+      />
 
       <Container>
         <S.SectionUpcoming>

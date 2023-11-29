@@ -1,8 +1,9 @@
 import Heading from "@components/Heading";
-import * as S from "./styles";
 import Highlight, { HighlightProps } from "@components/Highlight";
 import GameCardSlider from "@components/GameCardSlider";
 import { GameCardProps } from "@components/GameCard";
+
+import * as S from "./styles";
 
 export type ShowcaseProps = {
   title?: string;
