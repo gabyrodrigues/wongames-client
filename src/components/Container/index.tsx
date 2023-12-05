@@ -5,6 +5,6 @@ interface ContainerProps {
   children: ReactNode;
 }
 
-export function Container({ children }: ContainerProps) {
+export default function Container({ children }: ContainerProps) {
   return <S.Wrapper>{children}</S.Wrapper>;
 }

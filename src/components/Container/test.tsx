@@ -1,5 +1,5 @@
 import { renderWithTheme } from "@utils/tests/helpers";
-import { Container } from ".";
+import Container from ".";
 import theme from "@styles/theme";
 
 describe("<Container />", () => {

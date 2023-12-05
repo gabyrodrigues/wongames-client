@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Base /> should render menu, footer and children 1`] = `
+@media (min-width: 768px) {
+
+}
+
+<h1>
+  Heading
+</h1>
+`;
