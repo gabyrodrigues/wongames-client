@@ -19,6 +19,11 @@ exports[`<Button /> should render a minimal version 1`] = `
   color: #F231A5;
 }
 
+.c0 a {
+  text-decoration: none;
+  color: #FAFAFA;
+}
+
 .c0:hover {
   background: none;
 }
@@ -78,6 +83,11 @@ exports[`<Button /> should render the medium size by default 1`] = `
   font-size: 1.4rem;
   height: 4rem;
   padding: 0.8rem 3.2rem;
+}
+
+.c0 a {
+  text-decoration: none;
+  color: #FAFAFA;
 }
 
 .c0:hover {

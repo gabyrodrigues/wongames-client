@@ -60,6 +60,11 @@ exports[`<FormSignIn /> should render the form 1`] = `
   width: 100%;
 }
 
+.c8 a {
+  text-decoration: none;
+  color: #FAFAFA;
+}
+
 .c8:hover {
   background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
 }
@@ -188,7 +193,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
         >
           Don't have an account? 
           <a
-            href="/sign-up"
+            href="/auth/sign-up"
           >
             Sign up
           </a>

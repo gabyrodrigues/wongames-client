@@ -99,6 +99,11 @@ exports[`<GameCard /> should render correctly 1`] = `
   height: 3rem;
 }
 
+.c9 a {
+  text-decoration: none;
+  color: #FAFAFA;
+}
+
 .c9:hover {
   background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
 }
