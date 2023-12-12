@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
-import GameDetails from ".";
+import GameDetails, { GameDetailsProps } from ".";
 
 export default {
   title: "Game/GameDetails",
@@ -8,8 +8,17 @@ export default {
     backgrounds: {
       default: "won-dark"
     }
+  },
+  args: {
+    platforms: ["windows", "linux"]
+  },
+  argTypes: {
+    platforms: {
+      control: "inline-check",
+      options: ["windows", "linux", "mac"]
+    }
   }
-} as Meta;
+} as Meta<GameDetailsProps>;
 
 export const Default: StoryObj = {
   decorators: [
