@@ -5,13 +5,24 @@ import { Apple, Linux, Windows } from "@styled-icons/fa-brands";
 
 type Platform = "windows" | "linux" | "mac";
 
+type Rating = "BR0" | "BR10" | "BR12" | "BR14" | "BR16" | "BR18";
 export interface GameDetailsProps {
   developer: string;
   platforms: Platform[];
   releaseDate: string;
+  rating: Rating;
+  genres: string[];
+  publisher: string;
 }
 
-export default function GameDetails({ developer, releaseDate, platforms }: GameDetailsProps) {
+export default function GameDetails({
+  developer,
+  releaseDate,
+  platforms,
+  rating,
+  genres,
+  publisher
+}: GameDetailsProps) {
   const platformIcons = {
     linux: (
       <Linux
@@ -71,17 +82,19 @@ export default function GameDetails({ developer, releaseDate, platforms }: GameD
 
         <S.Block>
           <S.Label>Publisher</S.Label>
-          <S.Description>2k</S.Description>
+          <S.Description>{publisher}</S.Description>
         </S.Block>
 
         <S.Block>
           <S.Label>Rating</S.Label>
-          <S.Description>18+</S.Description>
+          <S.Description>
+            {rating === "BR0" ? "FREE" : `${rating.replace("BR", "")}+`}
+          </S.Description>
         </S.Block>
 
         <S.Block>
           <S.Label>Genres</S.Label>
-          <S.Description>Action / Adventure</S.Description>
+          <S.Description>{genres.join(" / ")}</S.Description>
         </S.Block>
       </S.Content>
     </S.Wrapper>
