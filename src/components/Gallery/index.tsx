@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Image from "next/image";
 import { ArrowBackIos as ArrowLeft } from "@styled-icons/material-outlined/ArrowBackIos";
 import { ArrowForwardIos as ArrowRight } from "@styled-icons/material-outlined/ArrowForwardIos";
@@ -50,6 +51,8 @@ const settings: SliderSettings = {
 };
 
 export default function Gallery({ items }: GalleryProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <S.Wrapper>
       <Slider settings={settings}>
@@ -59,9 +62,18 @@ export default function Gallery({ items }: GalleryProps) {
             key={`thumb-${index}`}
             src={item.src}
             alt={`Thumb - ${item.label}`}
+            height={405}
+            width={768}
+            priority
+            onClick={() => setIsOpen(true)}
           />
         ))}
       </Slider>
+
+      <S.Modal
+        aria-label="modal"
+        aria-hidden={!isOpen}
+        $isOpen={isOpen}></S.Modal>
     </S.Wrapper>
   );
 }
