@@ -2,6 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ArrowBackIos as ArrowLeft } from "@styled-icons/material-outlined/ArrowBackIos";
 import { ArrowForwardIos as ArrowRight } from "@styled-icons/material-outlined/ArrowForwardIos";
+import { Close } from "@styled-icons/material-outlined";
 
 import Slider, { SliderSettings } from "@components/Slider";
 import * as S from "./styles";
@@ -73,7 +74,14 @@ export default function Gallery({ items }: GalleryProps) {
       <S.Modal
         aria-label="modal"
         aria-hidden={!isOpen}
-        $isOpen={isOpen}></S.Modal>
+        $isOpen={isOpen}>
+        <S.Close
+          role="button"
+          aria-label="close modal"
+          onClick={() => setIsOpen(false)}>
+          <Close size={40} />
+        </S.Close>
+      </S.Modal>
     </S.Wrapper>
   );
 }
