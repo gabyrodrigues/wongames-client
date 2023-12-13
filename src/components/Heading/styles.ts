@@ -9,7 +9,7 @@ interface HeadingStylesProps extends Omit<HeadingProps, "lineLeft"> {
   $lineColor: LineColors;
 }
 
-const wrapperModifiers = {
+export const wrapperModifiers = {
   small: (theme: Theme) => css`
     font-size: ${theme.font.sizes.medium};
 
