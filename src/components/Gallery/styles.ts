@@ -73,8 +73,8 @@ export const Modal = styled.div<ModalProps>`
     left: 0;
     position: fixed;
     top: 0;
-    width: 100%;
     transition: opacity ${theme.transition.default};
+    width: 100%;
     z-index: ${theme.layers.modal};
 
     ${$isOpen && modalModifiers.open()}
