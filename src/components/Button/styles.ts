@@ -3,7 +3,7 @@ import { ButtonProps } from ".";
 import { Theme } from "@styles/theme";
 import { darken } from "polished";
 
-interface WrapperProps extends Omit<ButtonProps, "children"> {
+export interface WrapperProps extends Omit<ButtonProps, "children"> {
   $fullWidth?: boolean;
   $hasIcon: boolean;
   $minimal?: boolean;

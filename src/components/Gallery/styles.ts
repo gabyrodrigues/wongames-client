@@ -94,3 +94,8 @@ export const Close = styled.div`
     width: 100%;
   `}
 `;
+
+export const Content = styled.div`
+  max-height: 80rem;
+  max-width: min(120rem, 100%);
+`;
