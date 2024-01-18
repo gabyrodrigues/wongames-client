@@ -8,5 +8,6 @@ export const Wrapper = styled.div`
     max-width: ${theme.grid.container};
     padding-left: calc(${theme.grid.gutter} / 2);
     padding-right: calc(${theme.grid.gutter} / 2);
+    width: 100%;
   `}
 `;

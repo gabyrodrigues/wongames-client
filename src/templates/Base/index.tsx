@@ -9,18 +9,18 @@ export interface BaseTemplateProps {
 
 export default function Base({ children }: BaseTemplateProps) {
   return (
-    <section>
+    <S.Wrapper>
       <Container>
         <Menu />
       </Container>
 
-      {children}
+      <S.Content>{children}</S.Content>
 
       <S.SectionFooter>
         <Container>
           <Footer />
         </Container>
       </S.SectionFooter>
-    </section>
+    </S.Wrapper>
   );
 }
