@@ -1,11 +1,14 @@
-import Heading from "@components/Heading";
-import * as S from "./styles";
-import MediaMatch from "@components/MediaMatch";
+import dayjs from "dayjs";
 import { Apple, Linux, Windows } from "@styled-icons/fa-brands";
 
-type Platform = "windows" | "linux" | "mac";
+import Heading from "@components/Heading";
+import MediaMatch from "@components/MediaMatch";
 
-type Rating = "BR0" | "BR10" | "BR12" | "BR14" | "BR16" | "BR18";
+import * as S from "./styles";
+
+export type Platform = "windows" | "linux" | "mac";
+
+export type Rating = "BR0" | "BR10" | "BR12" | "BR14" | "BR16" | "BR18";
 export interface GameDetailsProps {
   developer: string;
   platforms: Platform[];
@@ -62,13 +65,7 @@ export default function GameDetails({
 
         <S.Block>
           <S.Label>Release Date</S.Label>
-          <S.Description>
-            {new Intl.DateTimeFormat("en-US", {
-              day: "numeric",
-              month: "short",
-              year: "numeric"
-            }).format(new Date(releaseDate))}
-          </S.Description>
+          <S.Description>{dayjs(releaseDate).format("MMM DD, YYYY")}</S.Description>
         </S.Block>
 
         <S.Block>

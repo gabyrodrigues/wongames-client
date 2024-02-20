@@ -24,6 +24,7 @@
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "@types/styled-components": "^5.1.27",
+    "dayjs": "^1.11.10",
     "eslint-config-next": "13.4.19",
     "next": "13.4.19",
     "polished": "^4.2.2",

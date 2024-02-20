@@ -1,6 +1,7 @@
 import Base from "@templates/Base";
 import GameInfo, { GameInfoProps } from "@components/GameInfo";
 import Gallery, { GalleryImageProps } from "@components/Gallery";
+import GameDetails, { GameDetailsProps } from "@components/GameDetails";
 import TextContent from "@components/TextContent";
 
 import * as S from "./styles";
@@ -10,9 +11,16 @@ export interface GameTemplateProps {
   gameInfo: GameInfoProps;
   gallery?: GalleryImageProps[];
   description: string;
+  details: GameDetailsProps;
 }
 
-export default function GameTemplate({ cover, gameInfo, gallery, description }: GameTemplateProps) {
+export default function GameTemplate({
+  cover,
+  gameInfo,
+  gallery,
+  description,
+  details
+}: GameTemplateProps) {
   return (
     <Base>
       <S.Cover
@@ -33,6 +41,10 @@ export default function GameTemplate({ cover, gameInfo, gallery, description }: 
             content={description}
           />
         </S.SectionDescription>
+
+        <S.SectionGameDetails>
+          <GameDetails {...details} />
+        </S.SectionGameDetails>
       </S.Main>
     </Base>
   );

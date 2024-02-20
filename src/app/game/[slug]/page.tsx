@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import Game, { GameTemplateProps } from "@templates/Game";
 import galleryMock from "@components/Gallery/mock";
+import { Platform, Rating } from "@components/GameDetails";
 
 export const dynamicParams = false;
 
@@ -14,7 +16,15 @@ export default function GamePage() {
       price: "",
       description: ""
     },
-    description: ""
+    description: "",
+    details: {
+      developer: "",
+      releaseDate: "",
+      platforms: [] as Platform[],
+      publisher: "",
+      rating: "BR0" as Rating,
+      genres: []
+    }
   });
 
   async function fetchGames() {
@@ -32,6 +42,7 @@ export default function GamePage() {
       gameInfo={gameData.gameInfo}
       gallery={gameData.gallery}
       description={gameData.description}
+      details={gameData.details}
     />
   );
 }
@@ -69,6 +80,14 @@ async function getGameData() {
         "Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality"
     },
     gallery: galleryMock,
-    description: descriptionHTML
+    description: descriptionHTML,
+    details: {
+      developer: "CD PROJEKT RED",
+      releaseDate: "2020-11-21T23:00:00",
+      platforms: ["windows"] as Platform[],
+      publisher: "CD PROJEKT RED",
+      rating: "BR18" as Rating,
+      genres: ["Action", "Role-playing"]
+    }
   };
 }
