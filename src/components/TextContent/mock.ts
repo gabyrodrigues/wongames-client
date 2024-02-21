@@ -1,4 +1,6 @@
-const item = {
+import { TextContentProps } from ".";
+
+const item: TextContentProps = {
   title: "Description",
   content: `<h1>Heading</h1>
 <h2>Heading</h2>
