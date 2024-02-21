@@ -3,8 +3,12 @@
 import { useEffect, useState } from "react";
 
 import Game, { GameTemplateProps } from "@templates/Game";
-import galleryMock from "@components/Gallery/mock";
 import { Platform, Rating } from "@components/GameDetails";
+import galleryMock from "@components/Gallery/mock";
+import gamesMock from "@components/GameCardSlider/mock";
+import highlightMock from "@components/Highlight/mock";
+import { GameCardProps } from "@components/GameCard";
+import { HighlightProps } from "@components/Highlight";
 
 export const dynamicParams = false;
 
@@ -24,7 +28,16 @@ export default function GamePage() {
       publisher: "",
       rating: "BR0" as Rating,
       genres: []
-    }
+    },
+    upcomingGames: [] as GameCardProps[],
+    upcomingHighlight: {
+      title: "",
+      subtitle: "",
+      backgroundImage: "",
+      buttonLabel: "",
+      buttonLink: ""
+    } as HighlightProps,
+    recommendedGames: [] as GameCardProps[]
   });
 
   async function fetchGames() {
@@ -43,6 +56,9 @@ export default function GamePage() {
       gallery={gameData.gallery}
       description={gameData.description}
       details={gameData.details}
+      upcomingGames={gameData.upcomingGames}
+      upcomingHighlight={gameData.upcomingHighlight}
+      recommendedGames={gameData.recommendedGames}
     />
   );
 }
@@ -88,6 +104,9 @@ async function getGameData() {
       publisher: "CD PROJEKT RED",
       rating: "BR18" as Rating,
       genres: ["Action", "Role-playing"]
-    }
+    },
+    upcomingGames: gamesMock,
+    upcomingHighlight: highlightMock,
+    recommendedGames: gamesMock
   };
 }

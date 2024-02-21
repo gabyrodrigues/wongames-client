@@ -5,6 +5,9 @@ import GameDetails, { GameDetailsProps } from "@components/GameDetails";
 import TextContent from "@components/TextContent";
 
 import * as S from "./styles";
+import { GameCardProps } from "@components/GameCard";
+import { HighlightProps } from "@components/Highlight";
+import Showcase from "@components/Showcase";
 
 export interface GameTemplateProps {
   cover: string;
@@ -12,6 +15,9 @@ export interface GameTemplateProps {
   gallery?: GalleryImageProps[];
   description: string;
   details: GameDetailsProps;
+  upcomingGames: GameCardProps[];
+  upcomingHighlight: HighlightProps;
+  recommendedGames: GameCardProps[];
 }
 
 export default function GameTemplate({
@@ -19,7 +25,10 @@ export default function GameTemplate({
   gameInfo,
   gallery,
   description,
-  details
+  details,
+  upcomingGames,
+  upcomingHighlight,
+  recommendedGames
 }: GameTemplateProps) {
   return (
     <Base>
@@ -45,6 +54,17 @@ export default function GameTemplate({
         <S.SectionGameDetails>
           <GameDetails {...details} />
         </S.SectionGameDetails>
+
+        <Showcase
+          title="Upcoming"
+          games={upcomingGames}
+          highlight={upcomingHighlight}
+        />
+
+        <Showcase
+          title="You may like these games"
+          games={recommendedGames}
+        />
       </S.Main>
     </Base>
   );
