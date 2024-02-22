@@ -3,10 +3,9 @@ import Base from "@templates/Base";
 import Container from "@components/Container";
 import Heading from "@components/Heading";
 import Showcase from "@components/Showcase";
+import Grid from "@components/Grid";
 import GameCard, { GameCardProps } from "@components/GameCard";
 import { HighlightProps } from "@components/Highlight";
-
-import * as S from "./styles";
 
 export type WishlistTemplateProps = {
   games?: GameCardProps[];
@@ -28,12 +27,14 @@ export default function Wishlist({
           Wishlist
         </Heading>
 
-        {games?.map((game, index) => (
-          <GameCard
-            key={`wishlist-${index}`}
-            {...game}
-          />
-        ))}
+        <Grid>
+          {games?.map((game, index) => (
+            <GameCard
+              key={`wishlist-${index}`}
+              {...game}
+            />
+          ))}
+        </Grid>
       </Container>
 
       <Showcase
