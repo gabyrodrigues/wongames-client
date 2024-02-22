@@ -3,9 +3,10 @@ import GameInfo, { GameInfoProps } from "@components/GameInfo";
 import Gallery, { GalleryImageProps } from "@components/Gallery";
 import GameDetails, { GameDetailsProps } from "@components/GameDetails";
 import TextContent from "@components/TextContent";
+import Divider from "@components/Divider";
+import Showcase from "@components/Showcase";
 import { GameCardProps } from "@components/GameCard";
 import { HighlightProps } from "@components/Highlight";
-import Showcase from "@components/Showcase";
 
 import * as S from "./styles";
 
@@ -53,6 +54,7 @@ export default function GameTemplate({
 
         <S.SectionGameDetails>
           <GameDetails {...details} />
+          <Divider />
         </S.SectionGameDetails>
 
         <Showcase

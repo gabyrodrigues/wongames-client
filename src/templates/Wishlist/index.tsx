@@ -5,6 +5,7 @@ import Heading from "@components/Heading";
 import Showcase from "@components/Showcase";
 import Grid from "@components/Grid";
 import GameCard, { GameCardProps } from "@components/GameCard";
+import Divider from "@components/Divider";
 import { HighlightProps } from "@components/Highlight";
 
 export type WishlistTemplateProps = {
@@ -35,6 +36,8 @@ export default function Wishlist({
             />
           ))}
         </Grid>
+
+        <Divider />
       </Container>
 
       <Showcase
