@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 
 import { GameCardProps } from "@components/GameCard";
@@ -9,6 +10,7 @@ import Wishlist, { WishlistTemplateProps } from "@templates/Wishlist";
 
 export default function GamePage() {
   const [gameData, setGameData] = useState<WishlistTemplateProps>({
+    games: [] as GameCardProps[],
     recommendedGames: [] as GameCardProps[],
     recommendedHighlight: {
       title: "",
@@ -30,6 +32,7 @@ export default function GamePage() {
 
   return (
     <Wishlist
+      games={gameData.games}
       recommendedGames={gameData.recommendedGames}
       recommendedHighlight={gameData.recommendedHighlight}
     />
@@ -38,6 +41,7 @@ export default function GamePage() {
 
 async function getGameData() {
   return {
+    games: gamesMock,
     recommendedGames: gamesMock.slice(0, 5),
     recommendedHighlight: highlightMock
   };
