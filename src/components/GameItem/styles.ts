@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
@@ -66,5 +67,12 @@ export const Price = styled.p`
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.bold};
     padding: 0.2rem ${theme.spacings.xxsmall};
+  `}
+`;
+
+export const DownloadLink = styled(Link)`
+  ${({ theme }) => css`
+    color: ${theme.colors.primary};
+    margin-left: ${theme.spacings.xxsmall};
   `}
 `;

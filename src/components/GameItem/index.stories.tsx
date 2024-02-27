@@ -12,3 +12,8 @@ export default {
 } as Meta<GameItemProps>;
 
 export const Default: StoryObj = {};
+export const WithPayment: StoryObj = {
+  args: {
+    downloadLink: "https://wongames.com/game/download/21312ndasd"
+  }
+};

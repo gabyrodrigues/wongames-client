@@ -1,26 +1,37 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+import { Download } from "@styled-icons/boxicons-regular/Download";
+
 import * as S from "./styles";
 
 export interface GameItemProps {
   img: string;
   title: string;
   price: string;
+  downloadLink?: string;
 }
-export default function GameItem({ img, title, price }: GameItemProps) {
+export default function GameItem({ img, title, price, downloadLink }: GameItemProps) {
   return (
     <S.Wrapper>
       <S.GameContent>
         <S.ImageBox>
-          <Image
+          <img
             src={img}
             alt={title}
-            width={151}
-            height={70}
           />
         </S.ImageBox>
 
         <S.Content>
-          <S.Title>{title}</S.Title>
+          <S.Title>
+            {title}
+            {!!downloadLink && (
+              <S.DownloadLink
+                href={downloadLink}
+                target="_blank"
+                aria-label={`Get ${title} here`}>
+                <Download size={22} />
+              </S.DownloadLink>
+            )}
+          </S.Title>
           <S.Price>{price}</S.Price>
         </S.Content>
       </S.GameContent>

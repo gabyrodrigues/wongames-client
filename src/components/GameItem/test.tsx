@@ -17,4 +17,19 @@ describe("<GameItem />", () => {
     expect(screen.getByRole("img", { name: props.title })).toHaveAttribute("src", props.img);
     expect(screen.getByText("R$ 215,00")).toBeInTheDocument();
   });
+  it("should render the item with download link", () => {
+    const downloadLink = "https://link.com";
+
+    renderWithTheme(
+      <GameItem
+        {...props}
+        downloadLink={downloadLink}
+      />
+    );
+
+    expect(screen.getByRole("link", { name: `Get ${props.title} here` })).toHaveAttribute(
+      "href",
+      downloadLink
+    );
+  });
 });
