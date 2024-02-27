@@ -3,13 +3,22 @@ import { Download } from "@styled-icons/boxicons-regular/Download";
 
 import * as S from "./styles";
 
+interface PaymentInfoProps {
+  number: string;
+  flag: string;
+  img: string;
+  purchaseDate: string;
+}
+
 export interface GameItemProps {
   img: string;
   title: string;
   price: string;
   downloadLink?: string;
+  paymentInfo?: PaymentInfoProps;
 }
-export default function GameItem({ img, title, price, downloadLink }: GameItemProps) {
+
+export default function GameItem({ img, title, price, downloadLink, paymentInfo }: GameItemProps) {
   return (
     <S.Wrapper>
       <S.GameContent>
@@ -35,6 +44,20 @@ export default function GameItem({ img, title, price, downloadLink }: GameItemPr
           <S.Price>{price}</S.Price>
         </S.Content>
       </S.GameContent>
+
+      {!!paymentInfo && (
+        <S.PaymentContent>
+          <p>{paymentInfo.purchaseDate}</p>
+
+          <S.CardInfo>
+            <span>{paymentInfo.number}</span>
+            <img
+              src={paymentInfo.img}
+              alt={paymentInfo.flag}
+            />
+          </S.CardInfo>
+        </S.PaymentContent>
+      )}
     </S.Wrapper>
   );
 }

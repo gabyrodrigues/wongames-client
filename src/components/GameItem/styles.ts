@@ -76,3 +76,37 @@ export const DownloadLink = styled(Link)`
     margin-left: ${theme.spacings.xxsmall};
   `}
 `;
+
+export const PaymentContent = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.gray};
+    display: flex;
+    flex-direction: column;
+    font-size: ${theme.font.sizes.small};
+    margin-top: ${theme.spacings.xsmall};
+    min-width: 28rem;
+
+    ${media.greaterThan("medium")`
+      align-items: flex-end;
+      flex: 1;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      margin-top: 0;
+    `}
+  `}
+`;
+
+export const CardInfo = styled.div`
+  ${({ theme }) => css`
+    align-items: center;
+    display: flex;
+
+    img {
+      margin-left: ${theme.spacings.xxsmall};
+    }
+
+    ${media.lessThan("medium")`
+      margin-top: ${theme.spacings.xsmall};
+    `}
+  `}
+`;

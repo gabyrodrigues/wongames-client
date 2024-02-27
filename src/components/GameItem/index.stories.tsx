@@ -14,6 +14,12 @@ export default {
 export const Default: StoryObj = {};
 export const WithPayment: StoryObj = {
   args: {
-    downloadLink: "https://wongames.com/game/download/21312ndasd"
+    downloadLink: "https://wongames.com/game/download/21312ndasd",
+    paymentInfo: {
+      flag: "mastercard",
+      img: "/img/mastercard.png",
+      number: "**** **** **** 4326",
+      purchaseDate: "Purchase made on 07/20/2020 at 20:32"
+    }
   }
 };
