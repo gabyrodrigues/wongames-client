@@ -8,7 +8,28 @@ export default {
   component: PaymentOptions,
   args: {
     cards: cardsMock
+  },
+  argTypes: {
+    cards: {
+      type: "string"
+    },
+    handlePayment: {
+      action: "clicked"
+    }
+  },
+  parameters: {
+    backgrounds: {
+      default: "won-dark"
+    }
   }
 } as Meta<PaymentOptionsProps>;
 
-export const Default: StoryObj = {};
+export const Default: StoryObj = {
+  decorators: [
+    (Story) => (
+      <div style={{ padding: 16, maxWidth: 400 }}>
+        <Story />
+      </div>
+    )
+  ]
+};
