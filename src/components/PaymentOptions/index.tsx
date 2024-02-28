@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import Heading from "@components/Heading";
-import * as S from "./styles";
-import Radio from "@components/Radio";
+import { useState } from "react";
 import { Add, ShoppingCart } from "@styled-icons/material-outlined";
+
+import Radio from "@components/Radio";
+import Heading from "@components/Heading";
 import Button from "@components/Button";
+
+import * as S from "./styles";
 
 export interface PaymentCard {
   number: string;
@@ -17,6 +20,8 @@ export interface PaymentOptionsProps {
 }
 
 export default function PaymentOptions({ cards, handlePayment }: PaymentOptionsProps) {
+  const [checked, setChecked] = useState(false);
+
   return (
     <S.Wrapper>
       <S.Body>
@@ -41,7 +46,7 @@ export default function PaymentOptions({ cards, handlePayment }: PaymentOptionsP
                 name="credit-card"
                 id={card.number}
                 value={card.number}
-                onCheck={() => ({})}
+                onCheck={() => setChecked(true)}
               />
             </S.CardItem>
           ))}
@@ -61,7 +66,8 @@ export default function PaymentOptions({ cards, handlePayment }: PaymentOptionsP
         <Button
           fullWidth
           icon={<ShoppingCart />}
-          onClick={handlePayment}>
+          onClick={handlePayment}
+          disabled={!checked}>
           Buy now
         </Button>
       </S.Footer>
