@@ -5,12 +5,13 @@ import { GameCardProps } from "@components/GameCard";
 import { HighlightProps } from "@components/Highlight";
 import gamesMock from "@components/GameCardSlider/mock";
 import highlightMock from "@components/Highlight/mock";
+import itemsMock from "@components/CartList/mock";
+import cardsMock from "@components/PaymentOptions/mock";
 
-import Wishlist, { WishlistTemplateProps } from "@templates/Wishlist";
+import Cart, { CartTemplateProps } from "@templates/Cart";
 
-export default function WishlistPage() {
-  const [gameData, setGameData] = useState<WishlistTemplateProps>({
-    games: [] as GameCardProps[],
+export default function CartPage() {
+  const [gameData, setGameData] = useState<CartTemplateProps>({
     recommendedGames: [] as GameCardProps[],
     recommendedHighlight: {
       title: "",
@@ -18,7 +19,10 @@ export default function WishlistPage() {
       backgroundImage: "",
       buttonLabel: "",
       buttonLink: ""
-    } as HighlightProps
+    } as HighlightProps,
+    items: [],
+    total: "",
+    cards: []
   });
 
   async function fetchGames() {
@@ -31,18 +35,22 @@ export default function WishlistPage() {
   }, []);
 
   return (
-    <Wishlist
-      games={gameData.games}
+    <Cart
       recommendedGames={gameData.recommendedGames}
       recommendedHighlight={gameData.recommendedHighlight}
+      items={gameData.items}
+      total={gameData.total}
+      cards={gameData.cards}
     />
   );
 }
 
 async function getGameData() {
   return {
-    games: gamesMock,
     recommendedGames: gamesMock.slice(0, 5),
-    recommendedHighlight: highlightMock
+    recommendedHighlight: highlightMock,
+    items: itemsMock,
+    total: "$ 430,00",
+    cards: cardsMock
   };
 }
