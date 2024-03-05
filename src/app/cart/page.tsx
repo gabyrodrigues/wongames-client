@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import { GameCardProps } from "@components/GameCard";
 import { HighlightProps } from "@components/Highlight";
+
 import gamesMock from "@components/GameCardSlider/mock";
 import highlightMock from "@components/Highlight/mock";
 import itemsMock from "@components/CartList/mock";

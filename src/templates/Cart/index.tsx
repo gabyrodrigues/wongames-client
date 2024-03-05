@@ -9,6 +9,7 @@ import CartList, { CartListProps } from "@components/CartList";
 import PaymentOptions, { PaymentOptionsProps } from "@components/PaymentOptions";
 
 import * as S from "./styles";
+import Empty from "@components/Empty";
 
 export interface CartTemplateProps extends CartListProps, Pick<PaymentOptionsProps, "cards"> {
   recommendedGames: GameCardProps[];
@@ -32,18 +33,25 @@ export default function CartTemplate({
           lineColor="secondary">
           My Cart
         </Heading>
+        {items.length ? (
+          <S.Content>
+            <CartList
+              items={items}
+              total={total}
+            />
 
-        <S.Content>
-          <CartList
-            items={items}
-            total={total}
+            <PaymentOptions
+              cards={cards}
+              handlePayment={handlePayment}
+            />
+          </S.Content>
+        ) : (
+          <Empty
+            title="Your cart is empty"
+            description="Go back to the store and explore great games and offers"
+            hasLink
           />
-
-          <PaymentOptions
-            cards={cards}
-            handlePayment={handlePayment}
-          />
-        </S.Content>
+        )}
 
         <Divider />
       </Container>
