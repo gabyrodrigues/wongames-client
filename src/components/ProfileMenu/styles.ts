@@ -1,6 +1,11 @@
 import styled, { css } from "styled-components";
 import media from "styled-media-query";
 import Link from "next/link";
+import { Theme } from "@styles/theme";
+
+export interface NavLinkProps {
+  $isActive?: boolean;
+}
 
 export const Nav = styled.nav`
   ${({ theme }) => css`
@@ -18,11 +23,21 @@ export const Nav = styled.nav`
   `}
 `;
 
-export const NavLink = styled(Link)`
-  ${({ theme }) => css`
-    align-items: center;
+const navLinkModifiers = {
+  default: (theme: Theme) => css`
     background: ${theme.colors.white};
     color: ${theme.colors.black};
+  `,
+  active: (theme: Theme) => css`
+    background: ${theme.colors.primary};
+    color: ${theme.colors.white};
+  `
+};
+
+export const NavLink = styled(Link)<NavLinkProps>`
+  ${({ theme, $isActive }) => css`
+    align-items: center;
+
     display: flex;
     padding: ${theme.spacings.xsmall} ${theme.spacings.small};
     text-decoration: none;
@@ -45,5 +60,8 @@ export const NavLink = styled(Link)`
         display: none;
       }
     `}
+
+    ${!$isActive && navLinkModifiers.default(theme)}
+    ${$isActive && navLinkModifiers.active(theme)}
   `}
 `;

@@ -1,22 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ProfileMenu /> should render the menu 1`] = `
-.c0 {
+.c2 {
   display: inline-block;
   vertical-align: middle;
   overflow: hidden;
 }
 
+.c0 {
+  display: flex;
+  border-bottom: 0.1rem solid #EAEAEA;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  padding: 1.6rem 2.4rem;
+  text-decoration: none;
+  transition: background,color,0.3s ease-in-out;
+  background: #FAFAFA;
+  color: #030517;
+}
+
+.c1:hover {
+  background: #F231A5;
+  color: #FAFAFA;
+}
+
+.c1 >span {
+  margin-left: 1.6rem;
+}
+
+@media (min-width: 768px) {
+  .c0 {
+    border: 0;
+    flex-direction: column;
+  }
+
+  .c0 a:not(:last-child) {
+    border-bottom: 0.1rem solid #EAEAEA;
+  }
+}
+
+@media (max-width: 768px) {
+  .c1 {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .c1 >span {
+    display: none;
+  }
+}
+
 <nav
-  class=""
+  class="c0"
 >
   <a
-    class=""
+    class="c1"
     href="/profile/me"
+    title="My profile"
   >
     <svg
       aria-hidden="true"
-      class="c0"
+      class="c2"
       fill="currentColor"
       focusable="false"
       height="24"
@@ -36,12 +83,13 @@ exports[`<ProfileMenu /> should render the menu 1`] = `
     </span>
   </a>
   <a
-    class=""
+    class="c1"
     href="/profile/cards"
+    title="My cards"
   >
     <svg
       aria-hidden="true"
-      class="c0"
+      class="c2"
       fill="currentColor"
       focusable="false"
       height="24"
@@ -58,12 +106,13 @@ exports[`<ProfileMenu /> should render the menu 1`] = `
     </span>
   </a>
   <a
-    class=""
+    class="c1"
     href="/profile/orders"
+    title="My orders"
   >
     <svg
       aria-hidden="true"
-      class="c0"
+      class="c2"
       fill="currentColor"
       focusable="false"
       height="24"
@@ -80,12 +129,12 @@ exports[`<ProfileMenu /> should render the menu 1`] = `
     </span>
   </a>
   <a
-    class=""
+    class="c1"
     href="/logout"
   >
     <svg
       aria-hidden="true"
-      class="c0"
+      class="c2"
       fill="currentColor"
       focusable="false"
       height="24"

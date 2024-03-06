@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
-import ProfileMenu from ".";
+import ProfileMenu, { ProfileMenuProps } from ".";
 
 export default {
   title: "ProfileMenu",
@@ -9,6 +9,14 @@ export default {
       default: "won-dark"
     }
   }
-} as Meta;
+} as Meta<ProfileMenuProps>;
 
-export const Default: StoryObj = {};
+export const Default: StoryObj = {
+  argTypes: {
+    activeLink: {
+      control: {
+        type: "select"
+      }
+    }
+  }
+};
