@@ -9,8 +9,7 @@ describe("<TextField />", () => {
     renderWithTheme(
       <TextField
         label="Label"
-        labelFor="Field"
-        id="Field"
+        name="Label"
       />
     );
 
@@ -32,8 +31,7 @@ describe("<TextField />", () => {
       <TextField
         onChange={onChange}
         label="TextField"
-        labelFor="TextField"
-        id="TextField"
+        name="TextField"
       />
     );
 
@@ -51,8 +49,7 @@ describe("<TextField />", () => {
     renderWithTheme(
       <TextField
         label="TextField"
-        labelFor="TextField"
-        id="TextField"
+        name="TextField"
       />
     );
 
@@ -68,8 +65,7 @@ describe("<TextField />", () => {
     renderWithTheme(
       <TextField
         label="TextField"
-        labelFor="TextField"
-        id="TextField"
+        name="TextField"
         icon={<Email data-testid="icon" />}
       />
     );
@@ -80,8 +76,7 @@ describe("<TextField />", () => {
     renderWithTheme(
       <TextField
         label="TextField"
-        labelFor="TextField"
-        id="TextField"
+        name="TextField"
         icon={<Email data-testid="icon" />}
         iconPosition="right"
       />
@@ -95,8 +90,7 @@ describe("<TextField />", () => {
       <TextField
         onChange={onChange}
         label="TextField"
-        labelFor="TextField"
-        id="TextField"
+        name="TextField"
         disabled
       />
     );
@@ -116,8 +110,7 @@ describe("<TextField />", () => {
     renderWithTheme(
       <TextField
         label="TextField"
-        labelFor="TextField"
-        id="TextField"
+        name="TextField"
         disabled
       />
     );
@@ -135,7 +128,7 @@ describe("<TextField />", () => {
       <TextField
         icon={<Email data-testid="icon" />}
         label="TextField"
-        labelFor="TextField"
+        name="TextField"
         error="Error message"
       />
     );

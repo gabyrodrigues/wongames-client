@@ -3,7 +3,6 @@ import * as S from "./styles";
 
 export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  labelFor?: string;
   initialValue?: string;
   icon?: ReactNode;
   iconPosition?: "left" | "right";
@@ -14,7 +13,7 @@ export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
 export default function TextField({
   onChange,
   label,
-  labelFor = "",
+  name,
   initialValue = "",
   icon,
   iconPosition = "left",
@@ -34,7 +33,7 @@ export default function TextField({
     <S.Wrapper
       disabled={disabled}
       $error={!!error}>
-      {!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
+      {!!label && <S.Label htmlFor={name}>{label}</S.Label>}
       <S.InputWrapper>
         {!!icon && <S.Icon $iconPosition={iconPosition}>{icon}</S.Icon>}
         <S.Input
@@ -42,8 +41,10 @@ export default function TextField({
           onChange={handleOnChange}
           value={value}
           $iconPosition={iconPosition}
-          {...props}
           disabled={disabled}
+          name={name}
+          {...(label ? { id: name } : {})}
+          {...props}
         />
       </S.InputWrapper>
       {!!error && <S.Error>{error}</S.Error>}
