@@ -6,8 +6,9 @@ import {
 } from "@styled-icons/material-outlined";
 import * as S from "./styles";
 
+export type ActiveLink = "/profile/me" | "/profile/cards" | "/profile/orders";
 export interface ProfileMenuProps {
-  activeLink?: "/profile/me" | "/profile/cards" | "/profile/orders";
+  activeLink?: ActiveLink;
 }
 
 export default function ProfileMenu({ activeLink }: ProfileMenuProps) {

@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
+import { usePathname } from "next/navigation";
 
 import Base from "@templates/Base";
 import Container from "@components/Container";
 import Heading from "@components/Heading";
-import ProfileMenu from "@components/ProfileMenu";
+import ProfileMenu, { ActiveLink } from "@components/ProfileMenu";
 
 import * as S from "./styles";
 
@@ -12,6 +13,8 @@ export type ProfileTemplateProps = {
 };
 
 export default function Profile({ children }: ProfileTemplateProps) {
+  const pathname = usePathname();
+
   return (
     <Base>
       <Container>
@@ -22,7 +25,7 @@ export default function Profile({ children }: ProfileTemplateProps) {
         </Heading>
 
         <S.Main>
-          <ProfileMenu />
+          <ProfileMenu activeLink={pathname as ActiveLink} />
           <S.Content>{children}</S.Content>
         </S.Main>
       </Container>
